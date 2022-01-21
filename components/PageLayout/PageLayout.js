@@ -11,12 +11,12 @@ import {
 const siteInfo = {
   siteTitle: 'Sprott School of Busness',
   siteDescription:
-    'RDS, Carleton University’s design system, is a living digital organism uniting campus wide teams around a common visual language. ',
-  siteKeywords: 'rds, design system',
+    'Here at Sprott, future leaders gain the confidence to ask hard questions, to embrace diverse perspectives and be authentic in their leadership. For our students, alumni, faculty and staff, we are a community for life.',
+  siteKeywords: 'carleton, university, scholl, business',
   siteImage: {
     formats: {
       small: {
-        url: 'https://cu-rds.s3.amazonaws.com/docs/assets/home-hero-3.png',
+        url: 'https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg',
       },
     },
   },
