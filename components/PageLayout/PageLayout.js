@@ -29,8 +29,6 @@ const PageLayout = (props) => {
   const { banner, children } = props;
   const { siteTitle, siteDescription, siteKeywords, siteImage, siteFavicon } =
     siteInfo;
-
-  console.log(banner);
   return (
     <>
       <Head>
@@ -58,7 +56,7 @@ const PageLayout = (props) => {
         </header>
       )}
       <Layout>
-        <Main>{children}</Main>
+        <Main className='l-cms'>{children}</Main>
       </Layout>
       <footer>
         <FooterSimple
