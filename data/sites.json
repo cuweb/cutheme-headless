@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sprott",
+    "name": "Sprott School of Busness",
+    "description": "Here at Sprott, future leaders gain the confidence to ask hard questions, to embrace diverse perspectives and be authentic in their leadership. For our students, alumni, faculty and staff, we are a community for life.",
+    "keywords": "carleton, university, school, business",
+    "image": {
+      "formats": {
+        "small": {
+          "url": "https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg"
+        }
+      }
+    },
+    "favicon": {
+      "url": "https://carleton.ca/favicon.ico"
+    },
+    "path": "sprott",
+    "url": "https://sprott.carleton.ca"
+  },
+  {
+    "id": "fass",
+    "name": "Faculty of Arts and Science",
+    "description": "",
+    "keywords": "carleton, university, arts, science",
+    "image": {
+      "formats": {
+        "small": {
+          "url": "https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg"
+        }
+      }
+    },
+    "favicon": {
+      "url": "https://carleton.ca/favicon.ico"
+    },
+    "path": "sprott",
+    "url": "https://carleton.ca/fass"
+  }
+]

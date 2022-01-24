@@ -1,47 +1,25 @@
-import { Masthead, TextImage } from '@marceloglacial/rds-beta';
-import Content from '../components/Content/Content';
+import { Banner, Masthead, Ublock } from '@marceloglacial/rds-beta';
 import PageLayout from '../components/PageLayout/PageLayout';
-import { getData } from '../functions/getData';
+import data from 'data/sites.json';
 
 const Home = (props) => {
-  const { frontPage } = props;
-
-  const { blocks } = frontPage;
-  const banner = blocks.find(
-    (block) => block.blockName === 'cutheme-blocks/banner'
-  ).attrs;
-
   return (
     <>
-      <Masthead title='Sprott School of Business' />
-      <PageLayout banner={{ ...banner }}>
-        {blocks.map((block, index) => (
-          <Content key={index} {...block} />
-        ))}
+      <Masthead title='Carleton University' />
+      <PageLayout>
+        <Banner title='Sites' />
+        <Ublock>
+          <ol>
+            {data?.map((site, index) => (
+              <li key={index}>
+                <a href={site.path}>{site.name}</a>
+              </li>
+            ))}
+          </ol>
+        </Ublock>
       </PageLayout>
     </>
   );
 };
-
-export async function getStaticProps() {
-  const allData = (await getData()) || {};
-  const {
-    frontPage = [],
-    headerMenu = [],
-    footerMenu = [],
-    subscribeMenu = [],
-    socialMenu = [],
-  } = allData;
-  return {
-    props: {
-      frontPage,
-      headerMenu,
-      footerMenu,
-      subscribeMenu,
-      socialMenu,
-    },
-    revalidate: 30,
-  };
-}
 
 export default Home;

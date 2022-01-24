@@ -11,7 +11,6 @@ const Content = (props) => {
   ];
 
   if (denyList.includes(blockName) || !blockName) return null;
-  console.log(blockName, attrs);
 
   const blockTypes = {
     'cutheme-blocks/button': (
