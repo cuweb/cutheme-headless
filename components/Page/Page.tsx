@@ -1,5 +1,4 @@
 import { Banner, Masthead, Ublock } from '@marceloglacial/rds-beta'
-import Content from 'components/Content/Content'
 import PageHeader from 'components/PageHeader/PageHeader'
 
 interface PageProps {
