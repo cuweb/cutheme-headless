@@ -7,7 +7,7 @@ const getAllPages = async (slug: string) => {
     const res = await fetch(`${siteData.url}/wp-json/wp/v2/pages`)
     const pages = await res.json()
     const paths = pages.map((page: { slug: string; link: string }) => ({
-        params: { slug: page.slug, url: page.link },
+        params: { page: page.slug, slug: page.slug, url: page.link },
     }))
     return paths
 }
