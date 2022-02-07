@@ -1,28 +1,47 @@
+import { Banner, Masthead, Ublock } from '@marceloglacial/rds-beta'
 import Content from 'components/Content/Content'
-import PageLayout from 'components/PageLayout/PageLayout'
+import PageHeader from 'components/PageHeader/PageHeader'
 
 interface PageProps {
-    pageData: [BlocksProps]
-}
-
-interface BlocksProps {
-    blocks: []
+    pageData: {
+        title: {
+            rendered: string
+        }
+        blocks: { blockName: string; innerHTML: string }[]
+    }
+    siteData: {
+        name: string
+        description: string
+        keywords: string
+        image: string
+        favicon: string
+        banner: any
+    }
 }
 
 const Page: React.FC<PageProps> = (props) => {
-    const { pageData } = props
+    const { siteData, pageData } = props
     const { blocks } = pageData
-    const banner = blocks.find(
-        (block: { blockName: string }) =>
-            block.blockName === 'cutheme-blocks/banner'
-    ).attrs
 
     return (
-        <PageLayout banner={{ ...banner }}>
-            {blocks?.map((block, index) => (
-                <Content key={index} {...block} />
-            ))}
-        </PageLayout>
+        <>
+            <PageHeader {...siteData} />
+            <Masthead title={siteData.name}>
+                <p>menu here</p>
+            </Masthead>
+            <header>
+                <Banner title={pageData.title.rendered} />
+            </header>
+            {blocks.map(
+                (item, index): JSX.Element => (
+                    <Ublock key={index}>
+                        <div
+                            dangerouslySetInnerHTML={{ __html: item.innerHTML }}
+                        />
+                    </Ublock>
+                )
+            )}
+        </>
     )
 }
 
