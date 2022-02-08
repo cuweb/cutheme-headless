@@ -1,7 +1,5 @@
 {
-    "name": "create-rds-app",
-    "version": "0.3.1",
-    "bin": "./bin/cli.js",
+    "name": "cutheme-headless",
     "scripts": {
         "dev": "next dev",
         "build": "yarn format && yarn lint && next build",
