@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getAllPages('sprott')
+    const paths = await getAllPages()
     return { paths, fallback: 'blocking' }
 }
 

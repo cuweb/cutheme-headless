@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Page from 'components/Page/Page'
 import { ParsedUrlQuery } from 'querystring'
-import getAllPages from 'functions/getAllPages'
+import getAllHomePages from 'functions/getAllHomePages'
 
 interface IParams extends ParsedUrlQuery {
     slug: string
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getAllPages('sprott')
+    const paths = await getAllHomePages()
     return { paths, fallback: 'blocking' }
 }
 
