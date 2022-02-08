@@ -9,6 +9,7 @@ interface PageProps {
         blocks: { blockName: string; innerHTML: string }[]
     }
     siteData: {
+        slug: string
         name: string
         description: string
         keywords: string
@@ -16,18 +17,23 @@ interface PageProps {
         favicon: string
         banner: any
     }
+    menus: {
+        site: string
+        menu: {
+            text: string
+            link: string
+        }[]
+    }[]
 }
 
-const Page: React.FC<PageProps> = (props) => {
+const Page: React.FC<PageProps> = (props): JSX.Element => {
     const { siteData, pageData } = props
     const { blocks } = pageData
 
     return (
         <>
-            <PageHeader {...siteData} />
-            <Masthead title={siteData.name}>
-                <p>menu here</p>
-            </Masthead>
+            <PageHeader title={pageData.title.rendered} {...siteData} />
+            <Masthead title={siteData.name}> </Masthead>
             <header>
                 <Banner title={pageData.title.rendered} />
             </header>

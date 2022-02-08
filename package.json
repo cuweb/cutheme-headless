@@ -4,10 +4,14 @@
     "bin": "./bin/cli.js",
     "scripts": {
         "dev": "next dev",
-        "build": "yarn format && yarn lint && next build && next export -o docs/",
+        "build": "yarn format && yarn lint && next build",
         "start": "next start",
         "lint": "next lint",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "nvmuse": "unset PREFIX && source $HOME/.nvm/nvm.sh && nvm install",
+        "predev": "yarn run nvmuse",
+        "preinstall": "yarn run nvmuse",
+        "prebuild": "yarn run nvmuse"
     },
     "dependencies": {
         "next": "12.0.9",

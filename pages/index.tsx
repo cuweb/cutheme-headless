@@ -9,6 +9,8 @@ import {
 } from '@marceloglacial/rds-beta'
 
 import PageHeader from 'components/PageHeader/PageHeader'
+import Link from 'next/link'
+import getSites from 'functions/getSites'
 
 interface HomeProps {
     pageInfo: SiteInfo
@@ -36,7 +38,9 @@ const Home: React.FC<HomeProps> = (props) => {
                     <ol>
                         {sites.map((site: SiteInfo, index: number) => (
                             <li key={index}>
-                                <a href={site.slug}>{site.name}</a>
+                                <Link href={`/${site.slug}`}>
+                                    <a>{site.name}</a>
+                                </Link>
                             </li>
                         ))}
                     </ol>
@@ -53,8 +57,7 @@ const Home: React.FC<HomeProps> = (props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const sites = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/sites`)
-    const data = await sites.json()
+    const data = await getSites()
     return {
         props: {
             sites: data,

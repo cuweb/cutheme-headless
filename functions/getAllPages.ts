@@ -1,14 +1,17 @@
-const getAllPages = async (slug: string) => {
-    const site = await fetch(
-        `${process.env.NEXT_PUBLIC_HOSTNAME}/api/sites/${slug}`
-    )
-    const siteData = await site.json()
+import getPages from './getPages'
+import getSites from './getSites'
 
-    const res = await fetch(`${siteData.url}/wp-json/wp/v2/pages`)
-    const pages = await res.json()
-    const paths = pages.map((page: { slug: string; link: string }) => ({
-        params: { slug: page.slug, url: page.link },
-    }))
-    return paths
+const getAllPages = async () => {
+    const sitesData: { [k: string]: any } | undefined = await getSites()
+    const data = Promise.all(
+        sitesData?.map(async (site: { url: string; slug: string }) => {
+            const pages = await getPages(site.slug)
+            const paths = pages.map((page: { slug: string; link: string }) => ({
+                params: { page: page.slug, slug: site.slug, url: page.link },
+            }))
+            return paths
+        })
+    )
+    return (await data).flat()
 }
 export default getAllPages
