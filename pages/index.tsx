@@ -9,6 +9,7 @@ import {
 } from '@marceloglacial/rds-beta'
 
 import PageHeader from 'components/PageHeader/PageHeader'
+import Link from 'next/link'
 
 interface HomeProps {
     pageInfo: SiteInfo
@@ -36,7 +37,9 @@ const Home: React.FC<HomeProps> = (props) => {
                     <ol>
                         {sites.map((site: SiteInfo, index: number) => (
                             <li key={index}>
-                                <a href={site.slug}>{site.name}</a>
+                                <Link href={`/${site.slug}`}>
+                                    <a>{site.name}</a>
+                                </Link>
                             </li>
                         ))}
                     </ol>
