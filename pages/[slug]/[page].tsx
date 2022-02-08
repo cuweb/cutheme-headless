@@ -22,11 +22,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
         `${siteData.url}/wp-json/wp/v2/pages?slug=${page}`
     )
     const pageData = await pageRes.json()
+
+    const menusRes = await fetch(
+        `${process.env.NEXT_PUBLIC_HOSTNAME}/api/menus`
+    )
+    const menus = await menusRes.json()
+
     return {
         props: {
             siteData,
             pageData: pageData[0],
             params: context.params,
+            menus,
         },
         revalidate: 30,
     }
