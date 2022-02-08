@@ -10,6 +10,7 @@ import {
 
 import PageHeader from 'components/PageHeader/PageHeader'
 import Link from 'next/link'
+import getSites from 'functions/getSites'
 
 interface HomeProps {
     pageInfo: SiteInfo
@@ -56,8 +57,7 @@ const Home: React.FC<HomeProps> = (props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const sites = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/sites`)
-    const data = await sites.json()
+    const data = await getSites()
     return {
         props: {
             sites: data,

@@ -27,12 +27,12 @@ interface PageProps {
 }
 
 const Page: React.FC<PageProps> = (props): JSX.Element => {
-    const { siteData, pageData, menus } = props
+    const { siteData, pageData } = props
     const { blocks } = pageData
 
     return (
         <>
-            <PageHeader {...siteData} />
+            <PageHeader title={pageData.title.rendered} {...siteData} />
             <Masthead title={siteData.name}> </Masthead>
             <header>
                 <Banner title={pageData.title.rendered} />
