@@ -3,6 +3,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "yarn format && yarn lint && next build",
+        "prodbuild": "next build",
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
